@@ -3,7 +3,7 @@ package com.workintech.fswebs17d1.entity;
 public class Animal {
 
     private String name;
-    private  Integer id;
+    private  int id;
 
     public  Animal(){
     }
@@ -21,7 +21,7 @@ public class Animal {
         this.name = name;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

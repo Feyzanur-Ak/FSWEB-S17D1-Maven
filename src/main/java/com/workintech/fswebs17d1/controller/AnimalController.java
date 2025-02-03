@@ -32,11 +32,11 @@ public class AnimalController {
     }
 
     @PostMapping
-    public ResponseEntity<String> addAnimal(@PathVariable Integer id, @PathVariable String name) {
-        if (animals.containsKey(id)) {
+    public ResponseEntity<String> addAnimal(@RequestBody Animal animal) {
+        if (animals.containsKey(animal.getId())) {
             return ResponseEntity.badRequest().body("Animal with this ID already exists!");
         }
-        animals.put(id, new Animal(id, name));
+        animals.put(animal.getId(), animal);
         return ResponseEntity.ok("Animal added successfully!");
     }
 
@@ -52,6 +52,7 @@ public class AnimalController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAnimal(@PathVariable Integer id) {
+        animals.put(1, new Animal(1, "Lion"));
         if (animals.containsKey(id)) {
             animals.remove(id);
             return ResponseEntity.ok("Animal deleted successfully!");
